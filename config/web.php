@@ -9,7 +9,14 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
+    ],
+    'container' => [
+        'singletons' => [
+            \app\services\interfaces\ChargeCommissionServiceInterface::class => ['class' => \app\services\ChargeCommissionService::class],
+            \app\services\interfaces\ChargePercentServiceInterface::class => ['class' => \app\services\ChargePercentService::class],
+            \app\services\interfaces\TransactionHistoryServiceInterface::class => ['class' => \app\services\TransactionHistoryService::class],
+        ],
     ],
     'components' => [
         'request' => [

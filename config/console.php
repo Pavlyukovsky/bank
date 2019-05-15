@@ -10,8 +10,15 @@ $config = [
     'controllerNamespace' => 'app\commands',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
         '@tests' => '@app/tests',
+    ],
+    'container' => [
+        'singletons' => [
+            \app\services\interfaces\ChargeCommissionServiceInterface::class => ['class' => \app\services\ChargeCommissionService::class],
+            \app\services\interfaces\ChargePercentServiceInterface::class => ['class' => \app\services\ChargePercentService::class],
+            \app\services\interfaces\TransactionHistoryServiceInterface::class => ['class' => \app\services\TransactionHistoryService::class],
+        ],
     ],
     'components' => [
         'cache' => [
